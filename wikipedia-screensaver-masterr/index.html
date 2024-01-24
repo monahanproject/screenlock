@@ -38,17 +38,17 @@
     // Handling incoming stream events
     const eventSource = new EventSource(SSE_URL);
     eventSource.onmessage = (e) => {
-      const data = JSON.parse(e.data);
-      if (data.type === 'edit' && !data.bot && data.namespace === 0 && data.wiki !== 'wikidatawiki') {
-        const language = data.wiki.replace('wiki', '');
-        const voice = voices[language] || voices['en'];
-        if (voice && !speechSynthesis.speaking && !speechSynthesis.pending) {
-          const utterance = new SpeechSynthesisUtterance(data.title);
-          utterance.voice = voice;
-          utterance.volume = soundCheckbox.checked ? 1 : 0;
-          speechSynthesis.speak(utterance);
-        }
-      }
+      // const data = JSON.parse(e.data);
+      // if (data.type === 'edit' && !data.bot && data.namespace === 0 && data.wiki !== 'wikidatawiki') {
+      //   const language = data.wiki.replace('wiki', '');
+      //   const voice = voices[language] || voices['en'];
+      //   if (voice && !speechSynthesis.speaking && !speechSynthesis.pending) {
+      //     const utterance = new SpeechSynthesisUtterance(data.title);
+      //     utterance.voice = voice;
+      //     utterance.volume = soundCheckbox.checked ? 1 : 0;
+      //     speechSynthesis.speak(utterance);
+      //   }
+      // }
     };
 
     // Background music functionality
