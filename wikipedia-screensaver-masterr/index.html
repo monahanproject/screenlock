@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
-    <p>hi please comment more!</p>
+    <p>please!</p>
     <audio id="background-music" loop>
       <source src="025_1.WAV" type="audio/wav" />
       Your browser does not support the audio element.
@@ -38,18 +38,18 @@
     // Handling incoming stream events
     const eventSource = new EventSource(SSE_URL);
     eventSource.onmessage = (e) => {
-      // const data = JSON.parse(e.data);
-      // if (data.type === 'edit' && !data.bot && data.namespace === 0 && data.wiki !== 'wikidatawiki') {
-      //   const language = data.wiki.replace('wiki', '');
-      //   const voice = voices[language] || voices['en'];
-      //   if (voice && !speechSynthesis.speaking && !speechSynthesis.pending) {
-      //     const utterance = new SpeechSynthesisUtterance(data.title);
-      //     utterance.voice = voice;
-      //     utterance.volume = soundCheckbox.checked ? 1 : 0;
-      //     speechSynthesis.speak(utterance);
-      //   }
-      // }
-    };
+    //   const data = JSON.parse(e.data);
+    //   if (data.type === 'edit' && !data.bot && data.namespace === 0 && data.wiki !== 'wikidatawiki') {
+    //     const language = data.wiki.replace('wiki', '');
+    //     const voice = voices[language] || voices['en'];
+    //     if (voice && !speechSynthesis.speaking && !speechSynthesis.pending) {
+    //       const utterance = new SpeechSynthesisUtterance(data.title);
+    //       utterance.voice = voice;
+    //       utterance.volume = soundCheckbox.checked ? 1 : 0;
+    //       speechSynthesis.speak(utterance);
+    //     }
+    //   }
+    // };
 
     // Background music functionality
     const backgroundMusic = doc.querySelector("#background-music");
