@@ -1,39 +1,39 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
-<p>hi please comment!</p>
+    <p>hi please comment more!</p>
     <audio id="background-music" loop>
-      <source src="025_1.WAV" type="audio/wav">
+      <source src="025_1.WAV" type="audio/wav" />
       Your browser does not support the audio element.
     </audio>
-    <input type="checkbox" id="sound"><label class="settings" for="sound">🔊Sound</label>
+    <input type="checkbox" id="sound" /><label class="settings" for="sound">🔊Sound</label>
   </body>
 </html>
 
 <script>
   ((doc, win, nav) => {
-    'use strict'; 
+    "use strict";
 
     // Stream URL for Wikimedia changes
-    const SSE_URL = 'https://stream.wikimedia.org/v2/stream/recentchange';
-    const soundCheckbox = doc.querySelector('#sound');
+    const SSE_URL = "https://stream.wikimedia.org/v2/stream/recentchange";
+    const soundCheckbox = doc.querySelector("#sound");
 
     // Fetching and organizing available voices
     let voices = {};
-    const updateVoices = () => {
-      voices = speechSynthesis.getVoices().reduce((acc, voice) => {
-        acc[voice.lang.substr(0, 2)] = voice;
-        return acc;
-      }, {});
-    };
+    // const updateVoices = () => {
+    //   voices = speechSynthesis.getVoices().reduce((acc, voice) => {
+    //     acc[voice.lang.substr(0, 2)] = voice;
+    //     return acc;
+    //   }, {});
+    // };
 
-    updateVoices();
-    speechSynthesis.onvoiceschanged = updateVoices;
+    // updateVoices();
+    // speechSynthesis.onvoiceschanged = updateVoices;
 
     // Handling incoming stream events
     const eventSource = new EventSource(SSE_URL);
@@ -52,53 +52,51 @@
     };
 
     // Background music functionality
-  const backgroundMusic = doc.querySelector('#background-music');
+    const backgroundMusic = doc.querySelector("#background-music");
 
-// Function to play background music
-const playBackgroundMusic = () => {
-  if (backgroundMusic) {
-    backgroundMusic.play().catch(err => {
-      console.error('Background music could not be played:', err);
-    });
-  }
-};
+    // Function to play background music
+    const playBackgroundMusic = () => {
+      if (backgroundMusic) {
+        backgroundMusic.play().catch((err) => {
+          console.error("Background music could not be played:", err);
+        });
+      }
+    };
 
-doc.addEventListener('click', playBackgroundMusic, { once: true });
-
+    doc.addEventListener("click", playBackgroundMusic, { once: true });
 
     // Sound checkbox functionality
-    soundCheckbox.addEventListener('click', () => {
+    soundCheckbox.addEventListener("click", () => {
       console.log(`Sound checkbox status: ${soundCheckbox.checked}`);
       if (soundCheckbox.checked && !speechSynthesis.speaking) {
-        const testUtterance = new SpeechSynthesisUtterance('Sound is on');
+        const testUtterance = new SpeechSynthesisUtterance("Sound is on");
         speechSynthesis.speak(testUtterance);
       }
     });
 
     // Wake lock functionality
     const requestWakeLock = async () => {
-      if ('wakeLock' in nav) {
+      if ("wakeLock" in nav) {
         try {
-          const wakeLockRequest = await nav.wakeLock.request('screen');
-          console.log('Wake lock activated.');
+          const wakeLockRequest = await nav.wakeLock.request("screen");
+          console.log("Wake lock activated.");
 
           // Re-request the wake lock if the visibility state changes
-          doc.addEventListener('visibilitychange', async () => {
-            if (doc.visibilityState === 'visible' && !wakeLockRequest) {
-              wakeLockRequest = await nav.wakeLock.request('screen');
-              console.log('Wake lock re-activated.');
+          doc.addEventListener("visibilitychange", async () => {
+            if (doc.visibilityState === "visible" && !wakeLockRequest) {
+              wakeLockRequest = await nav.wakeLock.request("screen");
+              console.log("Wake lock re-activated.");
             }
           });
         } catch (err) {
-          console.error('Wake lock could not be activated:', err);
+          console.error("Wake lock could not be activated:", err);
         }
       } else {
-        console.warn('Wake lock API not available.');
+        console.warn("Wake lock API not available.");
       }
     };
 
     // Request wake lock on page load
     requestWakeLock();
-
   })(document, window, navigator);
 </script>
