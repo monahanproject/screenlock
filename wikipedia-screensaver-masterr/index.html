@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
-    <p>please!</p>
+    <p>please!!</p>
     <audio id="background-music" loop>
       <source src="025_1.WAV" type="audio/wav" />
       Your browser does not support the audio element.
@@ -36,8 +36,8 @@
     // speechSynthesis.onvoiceschanged = updateVoices;
 
     // Handling incoming stream events
-    const eventSource = new EventSource(SSE_URL);
-    eventSource.onmessage = (e) => {
+    // const eventSource = new EventSource(SSE_URL);
+    // eventSource.onmessage = (e) => {
     //   const data = JSON.parse(e.data);
     //   if (data.type === 'edit' && !data.bot && data.namespace === 0 && data.wiki !== 'wikidatawiki') {
     //     const language = data.wiki.replace('wiki', '');
