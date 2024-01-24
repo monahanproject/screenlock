@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
-    <p>so close!!</p>
+    <p>working?!</p>
     <audio id="background-music" loop>
       <source src="025_1.WAV" type="audio/wav" />
-      Your browser doefs not support the audio element.
+      Your browser does not support the audio element.
     </audio>
     <input type="checkbox" id="sound" /><label class="settings" for="sound">🔊Sound</label>
   </body>
@@ -19,39 +19,8 @@
   ((doc, win, nav) => {
     "use strict";
 
-    // Stream URL for Wikimedia changes
-    // const SSE_URL = "https://stream.wikimedia.org/v2/stream/recentchange";
-    // const soundCheckbox = doc.querySelector("#sound");
 
-    // Fetching and organizing available voices
-    // let voices = {};
-    // const updateVoices = () => {
-    //   voices = speechSynthesis.getVoices().reduce((acc, voice) => {
-    //     acc[voice.lang.substr(0, 2)] = voice;
-    //     return acc;
-    //   }, {});
-    // };
-
-    // updateVoices();
-    // speechSynthesis.onvoiceschanged = updateVoices;
-
-    // Handling incoming stream events
-    // const eventSource = new EventSource(SSE_URL);
-    // eventSource.onmessage = (e) => {
-    //   const data = JSON.parse(e.data);
-    //   if (data.type === 'edit' && !data.bot && data.namespace === 0 && data.wiki !== 'wikidatawiki') {
-    //     const language = data.wiki.replace('wiki', '');
-    //     const voice = voices[language] || voices['en'];
-    //     if (voice && !speechSynthesis.speaking && !speechSynthesis.pending) {
-    //       const utterance = new SpeechSynthesisUtterance(data.title);
-    //       utterance.voice = voice;
-    //       utterance.volume = soundCheckbox.checked ? 1 : 0;
-    //       speechSynthesis.speak(utterance);
-    //     }
-    //   }
-    // };
-
-    // Background music functionality
+    // Background music 
     const backgroundMusic = doc.querySelector("#background-music");
 
     // Function to play background music
@@ -64,15 +33,6 @@
     };
 
     doc.addEventListener("click", playBackgroundMusic, { once: true });
-
-    // Sound checkbox functionality
-    soundCheckbox.addEventListener("click", () => {
-      console.log(`Sound checkbox status: ${soundCheckbox.checked}`);
-      if (soundCheckbox.checked && !speechSynthesis.speaking) {
-        const testUtterance = new SpeechSynthesisUtterance("Sound is on");
-        speechSynthesis.speak(testUtterance);
-      }
-    });
 
     // Wake lock functionality
     const requestWakeLock = async () => {
