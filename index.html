@@ -55,13 +55,14 @@
 
 
 
-
+  
 // Background music
-    const backgroundMusic = document.querySelector("#background-music");
+const backgroundMusic = document.querySelector("#background-music");
     console.log("Background music element:", backgroundMusic);
     
-    // Function to play background music
-    const playBackgroundMusic = () => {
+
+// Function to play background music
+const playBackgroundMusic = () => {
       if (backgroundMusic) {
         console.log("Attempting to play background music");
         backgroundMusic.play().then(() => {
@@ -74,6 +75,7 @@
       }
     };
     
+
     document.addEventListener("click", () => {
       console.log("Document clicked");
       playBackgroundMusic();
@@ -93,14 +95,12 @@
         console.warn("Wake lock API not available.");
       }
     };
+
+// Request wake lock on page load
+requestWakeLock();
     
-    // Request wake lock on page load
-    requestWakeLock();
 
 </script>
 
-
-
 </body>
-<footer></footer>
 </html>
