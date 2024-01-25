@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <p>strict?!</p>
+    <audio id="background-music" loop>
+      <source src="025_1.WAV" type="audio/wav" />
+      Your browser does not support the audio element.
+    </audio>
+    <input type="checkbox" id="sound" /><label class="settings" for="sound">🔊Sound</label>
+  </body>
+</html>
+
+<script>
+  // "use strict";
+
+  // Background music
+  const backgroundMusic = document.querySelector("#background-music");
+
+  // Function to play background music
+  const playBackgroundMusic = () => {
+    if (backgroundMusic) {
+      backgroundMusic.play().catch((err) => {
+        console.error("Background music could not be played:", err);
+      });
+    }
+  };
+
+  document.addEventListener("click", playBackgroundMusic, { once: true });
+
+  // Wake lock functionality
+  const requestWakeLock = async () => {
+    if ("wakeLock" in navigator) {
+      try {
+        const wakeLockRequest = await navigator.wakeLock.request("screen");
+        console.log("Wake lock activated.");
+
+        // Re-request the wake lock if the visibility state changes
+        document.addEventListener("visibilitychange", async () => {
+          if (document.visibilityState === "visible" && !wakeLockRequest) {
+            wakeLockRequest = await navigator.wakeLock.request("screen");
+            console.log("Wake lock re-activated.");
+          }
+        });
+      } catch (err) {
+        console.error("Wake lock could not be activated:", err);
+      }
+    } else {
+      console.warn("Wake lock API not available.");
+    }
+  };
+
+  // Request wake lock on page load
+  requestWakeLock();
+</script>
