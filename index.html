@@ -41,7 +41,7 @@
       <p id="wakeLockStatus"></p>
       <div
         style="display: flex; flex-wrap: nowrap; flex-direction: row; align-content: flex-end; justify-content: space-between; align-items: center">
-        <p>onwards?!</p>
+        <p>onwards!!!</p>
         <audio id="background-music" loop>
           <source src="025_1.WAV" type="audio/wav" />
           Your browser does not support the audio element.
@@ -49,48 +49,55 @@
         <input type="checkbox" id="sound" /><label class="settings" for="sound">🔊Sound</label>
       </div>
     </div>
-  </body>
-</html>
 
 <script>
   // "use strict";
 
-  // Background music
-  const backgroundMusic = document.querySelector("#background-music");
+// Background music
+const backgroundMusic = document.querySelector("#background-music");
+console.log("Background music element:", backgroundMusic);
 
-  // Function to play background music
-  const playBackgroundMusic = () => {
-    if (backgroundMusic) {
-      backgroundMusic.play().catch((err) => {
-        console.error("Background music could not be played:", err);
-      });
+// Function to play background music
+const playBackgroundMusic = () => {
+  if (backgroundMusic) {
+    console.log("Attempting to play background music");
+    backgroundMusic.play().then(() => {
+      console.log("Background music playing");
+    }).catch((err) => {
+      console.error("Background music could not be played:", err);
+    });
+  } else {
+    console.error("Background music element not found");
+  }
+};
+
+document.addEventListener("click", () => {
+  console.log("Document clicked");
+  playBackgroundMusic();
+}, { once: true });
+
+// Wake lock functionality
+const requestWakeLock = async () => {
+  if ("wakeLock" in navigator) {
+    console.log("Wake lock API available");
+    try {
+      const wakeLockRequest = await navigator.wakeLock.request("screen");
+      console.log("Wake lock activated.");
+    } catch (err) {
+      console.error("Wake lock could not be activated:", err);
     }
-  };
+  } else {
+    console.warn("Wake lock API not available.");
+  }
+};
 
-  document.addEventListener("click", playBackgroundMusic, { once: true });
+// Request wake lock on page load
+requestWakeLock();
 
-  // Wake lock functionality
-  const requestWakeLock = async () => {
-    if ("wakeLock" in navigator) {
-      try {
-        const wakeLockRequest = await navigator.wakeLock.request("screen");
-        console.log("Wake lock activated.");
-
-        // Re-request the wake lock if the visibility state changes
-        document.addEventListener("visibilitychange", async () => {
-          if (document.visibilityState === "visible" && !wakeLockRequest) {
-            wakeLockRequest = await navigator.wakeLock.request("screen");
-            console.log("Wake lock re-activated.");
-          }
-        });
-      } catch (err) {
-        console.error("Wake lock could not be activated:", err);
-      }
-    } else {
-      console.warn("Wake lock API not available.");
-    }
-  };
-
-  // Request wake lock on page load
-  requestWakeLock();
 </script>
+
+
+
+</body>
+<footer></footer>
+</html>
