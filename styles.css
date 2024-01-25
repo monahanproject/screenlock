@@ -1,0 +1,756 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700");
+@import url("https://fonts.googleapis.com/css?family=Lora&display=swap");
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap'); */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Merriweather&family=VT323&family=Zilla+Slab:wght@300;400&display=swap');
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=VT323&family=Zilla+Slab:wght@300;400&display=swap");
+
+
+/***********************/
+/*****  CSS RESET  *****/
+/***********************/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/***********************/
+/*****    FONTS    *****/
+/***********************/
+
+
+/* @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700'); */
+/* font-family: 'Source Sans Pro', sans-serif;
+  font-style: italic;
+	font-weight: 400; */
+
+:root {
+  --lightgreen: rgb(191 255 194);
+  --darkgreen: rgb(35 78 68);
+}
+
+/***********************/
+/***** FOUNDATIONS *****/
+/***********************/
+
+body {
+  font-family: "Zilla Slab", serif;
+  font-weight: 300;
+  font-size: 6.9vw;
+  width: 100vw;
+  height: 100vh;
+}
+
+@media screen and (min-width: 900px) {
+  body {
+    font-family: "Zilla Slab", serif;
+    font-weight: 300;
+    font-size: 4rem;
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
+.page {
+  display: flex;
+  height: 100vh;
+  padding: 10px;
+  box-sizing: border-box;
+  flex-direction: column;
+  /* justify-content: space-between; */
+}
+
+#landingPage {
+  display: flex;
+  height: 100vh;
+  justify-content: space-between;
+}
+
+#curiousEarsPage {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pageContent {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerDiv{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#aboutPage .pageContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribute space between children */
+  align-items: center; /* Center items horizontally */
+  height: 100%; /* Ensure it fills the height of its container */
+}
+
+#aboutPage .pageContent > :first-child {
+ margin-top: 2rem;
+}
+
+.centerCluster {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.page:nth-of-type(odd) {
+  background-color: var(--lightgreen);
+  color: var(--darkgreen);
+}
+
+.page:nth-of-type(even) {
+  background-color: var(--darkgreen);
+  color: var(--lightgreen);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+}
+
+#navButtons {
+  display: flex;
+  padding-left: 30px;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+}
+
+p {
+  padding: 1rem;
+  line-height: 1.35;
+  font-size: 1.3rem;
+  font-family: "Zilla Slab", serif;
+  font-weight: 300;
+}
+
+.DMSans {
+  font-family: "DM Sans", sans-serif;
+}
+
+.ZillaSlab {
+}
+
+#debug,
+#debug p {
+  font-size: 0.9rem;
+  line-height: 0.8rem;
+  padding: 0;
+}
+
+#titleText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#siteName {
+  font-size: 7.8vw;
+  font-family: "DM Sans", sans-serif;
+  color: var(--lightgreen);
+}
+
+#curiousEarsTxt {
+  text-align: center;
+  font-family: "Zilla Slab", serif;
+  font-size: 10vw;
+}
+
+@media screen and (min-width: 900px) {
+  #curiousEarsTxt {
+    font-family: "Zilla Slab", serif;
+    font-weight: 300;
+    font-size: 4rem;
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
+#arrow {
+  width: 2.5rem;
+  padding: 0 0 15px 0; /* margin-top: 8rem; */
+}
+
+@media screen and (min-width: 900px) {
+  p {
+    /* line-height: 1.25; */
+    /* padding-bottom: 0; */
+  }
+}
+
+/***********************/
+/******** LINKS ********/
+/***********************/
+
+a {
+  /* color: var(--accentDark); */
+  /* text-decoration: none; */
+}
+
+a:hover {
+  color: var(--accentTwo);
+}
+
+/***********************/
+/******  BUTTONS  ******/
+/***********************/
+
+.btn {
+  background-color: #214e42;
+  color: #bfffc2;
+  outline: none;
+  border: none;
+  padding: 10px;
+  /* width: 10rem; */
+  border-radius: 6px;
+}
+
+#transcriptButton {
+  background-color: #214e42;
+  color: #bfffc2;
+  outline: none;
+  border: none;
+  padding: 15px;
+  width: 94vw;
+  border-radius: 6px;
+}
+
+#langToggle {
+  /* display: inline-block; */
+  background-color: var(--darkgreen);
+  font-family: "DM Mono", sans-serif;
+  font-size: 5.2vw;
+
+  color: var(--lightgreen);
+  /* font-size: 1.11rem; */
+  text-decoration: none;
+  text-transform: uppercase;
+  /* margin: 3rem; */
+  /* padding: 0.6em 4em; */
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+/***********************/
+/******  IMAGES  *******/
+/***********************/
+
+img {
+  max-width: 100%;
+  /* max-height: auto; */
+}
+
+.navIcons {
+  width: 2rem;
+  padding: 0 0 0 8px;
+}
+
+.decorativeImage {
+  width: 23vw;
+}
+
+/***********************/
+/******* HEADERS *******/
+/***********************/
+
+h1 {
+  font-family: "Merriweather", serif;
+  font-family: "DM Sans", sans-serif;
+  font-size: 16.9vw;
+  margin-top: -5rem;
+  font-weight: 700;
+}
+
+#howToListenH2 {
+  font-size: 1.2rem;
+}
+
+#aboutH2 {
+  font-size: 1.2rem;
+}
+
+#monH2 {
+  font-size: 2rem;
+}
+
+@media screen and (min-width: 900px) {
+  h1 {
+    font-size: 6.9vw;
+  }
+}
+
+h2 {
+  font-family: "DM Sans", sans-serif;
+  font-size: 10.8vw;
+  font-weight: 400;
+  /* margin: 1em 0em 0.75em 0em; */
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--accentDark);
+}
+
+h4 {
+  font-size: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  color: var(--accentLight);
+}
+
+h5 {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--accentLight);
+}
+
+main {
+  /* display: flex; */
+  /* flex-direction: row; */
+  align-content: center;
+  justify-content: space-around;
+  align-items: center;
+  top: 20rem;
+}
+
+@media screen and (min-width: 900px) {
+  #playerPageMain {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+    top: 20rem;
+    align-items: flex-start;
+  }
+}
+
+#audio-player-container {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#playerPage {
+  width: 100vw;
+  height: 200vh;
+  padding: 0;
+  margin: 0;
+  /* display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-around;
+  align-items: center;
+  top: 20rem; */
+  /* align-items: flex-start; */
+}
+
+@media screen and (min-width: 900px) {
+  #playerPage {
+    width: 100vw;
+    /* height: 200vh; */
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+    top: 20rem;
+    align-items: flex-start;
+  }
+}
+
+#button-container {
+  display: flex;
+  justify-content: space-between; /* Pushes buttons to the edges */
+  align-items: center;
+  width: 100%; /* Ensure the container spans the full width */
+}
+
+.skip-button {
+  border: none;
+  background: none;
+  position: relative;
+  margin: 0 2.5vw;
+}
+
+.skip-button span {
+  display: block;
+  width: 15vw; /* Responsive width for mobile */
+  padding-top: calc(1.2 * 15vw); /* Corrected aspect ratio */
+  position: relative;
+}
+
+.svg-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (min-width: 900px) {
+  #button-container {
+    justify-content: center; /* Brings buttons closer together on desktop */
+  }
+
+  .skip-button {
+    margin: 0 2vw; /* Reduces space from the edges on desktop */
+  }
+
+  .skip-button span {
+    width: 10vw; /* Larger width for desktop */
+    padding-top: calc(1.2 * 10vw); /* Adjusted aspect ratio for desktop */
+  }
+}
+
+#play-button {
+  position: relative; /* Enables absolute positioning for child elements */
+  background: transparent;
+  border: none;
+  margin: 80px 0;
+}
+
+#play-button-svg-container {
+  display: block;
+  width: 80vw; /* Increased from 50vw to 80vw for a wider button on mobile */
+  padding-top: calc((319 / 279) * 80vw); /* Adjusted aspect ratio based on the new width */
+  position: relative; /* Context for the absolute positioning */
+}
+
+#play-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Full width of the container */
+  height: 100%; /* Full height of the container */
+}
+
+#play-button-text-container {
+  position: absolute;
+  top: 50%;
+  /* left: 50%; */
+  left: 35%;
+  transform: translate(-50%, -50%);
+  color: #bfffc2;
+  pointer-events: none; /* Allows clicks to pass through the text */
+  font-family: "Zilla Slab", sans-serif;
+  font-size: 6.5vw; /* Adjusted for larger button size */
+}
+
+.svg-container {
+  background-image: url("images/svg/patternRow3.svg");
+  background-repeat: repeat-x; /* Repeat only horizontally */
+  background-size: auto 110px; /* Adjust the height as needed, width is automatic */
+  height: 110px; /* This should be at least as tall as the background-size height */
+  width: 100vw;
+}
+
+
+
+@media screen and (min-width: 900px) {
+  #play-button-svg-container {
+    width: 20vw; /* Adjusted width for desktop, can tweak as necessary */
+    padding-top: calc((319 / 279) * 20vw); /* Adjusted aspect ratio for desktop */
+  }
+
+  #play-button-text-container {
+    font-size: 1.8vw; /* Adjusted for larger button size on desktop */
+  }
+}
+
+/* PROGRESS BAR  */
+
+#progress-container {
+  position: relative;
+  width: 90%; /* Reduced from 100% to 90% */
+  height: 2px;
+  background-color: grey; /* Unplayed part is now grey */
+  margin: 8px auto 0 auto; /* Center the progress bar */
+}
+
+#progress-bar {
+  position: absolute;
+  width: 0; /* Initial width */
+  height: 100%;
+  background-color: black; /* Played part is now black */
+}
+
+#progress-dot {
+  position: absolute;
+  top: -3px; /* Half the dot's size above the bar to center it */
+  left: 0;
+  width: 8px; /* Width of the dot */
+  height: 8px; /* Height of the dot */
+  background-color: black; /* Color of the dot */
+  border-radius: 50%; /* Make it round */
+}
+
+.time-labels {
+  display: flex;
+  justify-content: space-between;
+  width: 90%; /* Match the progress bar width */
+  margin: 5px auto 0; /* Align with the progress bar and add some space */
+  font-size: 0.8rem;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  margin-top: 13px;
+}
+
+.time-label {
+  color: black; /* Or any color you prefer */
+}
+
+@media screen and (min-width: 900px) {
+  #progress-container {
+    position: relative;
+    width: 70%; /* Reduced from 100% to 90% */
+    height: 2px;
+    background-color: grey; /* Unplayed part is now grey */
+    margin: 0 auto; /* Center the progress bar */
+  }
+
+  .time-labels {
+    /* position: absolute; */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 80%;
+    margin: 0;
+    justify-content: space-between;
+    padding: 20px; /* Add padding to ensure labels don't overlap the progress bar ends */
+  }
+
+  #time-played {
+    left: 0;
+  }
+
+  #time-remaining {
+    right: 0;
+  }
+}
+
+/* VOLUME SLIDER  */
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 15rem;
+}
+
+#volume-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%; /* Full width to center the child elements */
+  padding: 10px 0; /* Some padding around the slider */
+  margin: 22px 0;
+}
+
+.volume-icon {
+  display: flex; /* Center the SVG icon */
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px; /* Space between the icons and the slider */
+}
+
+#volume-slider {
+  -webkit-appearance: none; /* Override default look */
+  width: 78vw;
+  height: 3px;
+  background: grey;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+#volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 9px; /* Size of the handle */
+  height: 9px;
+  border-radius: 50%;
+  background: black;
+  cursor: pointer;
+}
+
+#volume-slider::-moz-range-thumb {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: black;
+  cursor: pointer;
+}
+
+/***** Thumb Styles *****/
+/***** Chrome, Safari, Opera, and Edge Chromium *****/
+
+@media screen and (min-width: 900px) {
+  #volume-slider {
+    width: 40vw; /* Width for desktop */
+  }
+
+  #volume-container {
+    /* justify-content: start; Align to the start of the container */
+  }
+
+  .volume-icon {
+    margin: 0 10px; /* Adjust space as needed */
+  }
+}
+
+#debugdiv {
+  display: block;
+  max-height: 500px; /* Adjust as needed */
+  overflow: auto;
+  padding: 10px 5px;
+  margin: 10px 2px;
+
+  border: 2px solid orange;
+}
+
+#transcriptContainer {
+  background-color: lightslategray;
+  max-height: 150px; /* Adjust as needed */
+  overflow: auto;
+  margin: 20px 5px;
+}

@@ -28,20 +28,21 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <!-- <link rel="manifest" href="/site.webmanifest"> -->
 
-    <!-- <script>
+    <script>
       window.addEventListener("load", (event) => {
         document.body.classList.remove("preload");
       });
-    </script> -->
+    </script>
   </head>
+
   <body class="preload">
     <div id="" style="position: fixed; top: 0; width: 100%; background-color: lightgray; text-align: center; padding: 5px">
       Wake Lock Status: Inactive
 
       <p id="wakeLockStatus"></p>
-    <div
+      <div
         style="display: flex; flex-wrap: nowrap; flex-direction: row; align-content: flex-end; justify-content: space-between; align-items: center">
-        <p>onwards!!!</p>
+        <p>friend!!!</p>
         <audio id="background-music" loop>
           <source src="025_1.WAV" type="audio/wav" />
           Your browser does not support the audio element.
@@ -50,19 +51,304 @@
       </div>
     </div>
 
-<script>
-  // "use strict";
+    <div id="wakeLockStatus" style="position: fixed; top: 0; width: 100%; background-color: lightgray; text-align: center; padding: 5px;">
+      Wake Lock Status: Inactive
+    </div> -->
+    <main id="playerPageMain">
+      <section id="landingPage" class="page">
+        <p>MONAHAN is situated on the traditional unceded territory of the Anishinabe Algonquin Nation, custodians of these lands for millennia.</p>
+        <div id="titleText">
+          <h1 id="title">MONAHAN</h1>
+          <h2 id="artPubArt">ART PUBLIC ART</h2>
+        </div>
+        <p>
+          MONAHAN est situé sur le territoire traditionnel non cédé de la Nation Anishinabe Algonquine, gardienne de ces terres depuis des
+          millénaires.
+        </p>
+      </section>
+
+      <section id="curiousEarsPage" class="page">
+        <header>
+          <nav>
+            <p id="siteName">MONAHAN</p>
+            <div id="navButtons">
+              <button type="button" class="btn" id="langToggle">FR</button>
+              <a href="accessiblity.html" id="accessiblityNav"><img src="images/icons/accessIcon.svg" alt="access icon" class="navIcons" /></a>
+              <a href="about.html" id="aboutNav"><img src="images/icons/infoIcon.svg" alt="info icon" class="navIcons" /></a>
+            </div>
+          </nav>
+        </header>
+        <div class="pageContent">
+          <img src="images/icons/firn.svg" alt="" class="decorativeImage" />
+          <p id="curiousEarsTxt">A Sound Piece for Curious Ears</p>
+        </div>
+        <div class="pageContent">
+          <img src="images/icons/arrow.svg" alt="" id="arrow" class="decorativeImage" />
+        </div>
+      </section>
+
+      <section id="playerPage" class="page">
+
+        <div id="audio-player-container">
+          <button type="button" id="play-button" class="play-icon">
+            <span id="play-button-svg-container">
+              <img src="images/icons/playButton.svg" alt="Play" class="svg-icon" />
+            </span>
+            <span id="play-button-text-container">BEGIN</span>
+          </button>
+          <div id="button-container">
+            <button type="button" id="skipBackwardButton" class="skip-button">
+              <span id="skip-backward-button-svg-container">
+                <img src="images/svg/15s.svg" alt="Skip Backward" class="svg-icon" />
+              </span>
+            </button>
+
+            <button type="button" id="skipForwardButton" class="skip-button">
+              <span id="skip-forward-button-svg-container">
+                <img src="images/svg/30s.svg" alt="Skip Forward" class="svg-icon" />
+              </span>
+            </button>
+          </div>
+          <div id="playerTrackNameContainer"><p id="playerTrackName"></p></div>
+
+          <div id="progress-container">
+            <div id="progress-bar"></div>
+            <div id="progress-dot"></div>
+          </div>
+          <div class="time-labels">
+            <span id="time-played" class="time-label"></span>
+            <span id="time-remaining" class="time-label"></span>
+          </div>
+
+          <audio id="music_player"></audio>
+
+          <div id="volume-container">
+            <span id="lower-vol" class="volume-icon">
+              <svg width="13" height="24" viewBox="0 0 13 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10.4428 0L6.54857 5.81224H0.736328V17.4367H6.54857L10.4428 23.249H12.3608V0H10.4428Z" fill="#224E43" />
+              </svg>
+            </span>
+            <input type="range" id="volume-slider" max="100" min="0" />
+            <span id="raise-vol" class="volume-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M9.73965 0L5.84544 5.81224H0.0332031V17.4367H5.84544L9.73965 23.249H11.6577V0H9.73965ZM14.5638 2.90612V5.81224C15.0578 5.81224 15.5519 5.87036 16.0169 5.98661C18.5161 6.62596 20.376 8.89273 20.376 11.6245C20.376 14.3562 18.5452 16.623 16.0169 17.2624C15.5519 17.3786 15.0578 17.4367 14.5638 17.4367V20.3428C15.2903 20.3428 15.9587 20.2266 16.6562 20.0813H16.7434C20.5214 19.1223 23.2822 15.6931 23.2822 11.6245C23.2822 7.55591 20.5214 4.12669 16.7434 3.16767C16.075 2.9933 15.3194 2.90612 14.5638 2.90612ZM14.5638 8.71836V14.5306C14.8254 14.5306 15.0869 14.5015 15.2903 14.4434C16.54 14.1237 17.4699 12.9613 17.4699 11.6245C17.4699 10.2877 16.569 9.12522 15.2903 8.80555C15.0578 8.74742 14.7963 8.71836 14.5638 8.71836Z"
+                  fill="#224E43" />
+              </svg>
+            </span>
+          </div>
+          <div id="transButtonContainer"></div>
+          <div id="transcriptContainer"></div>
+        </div>
+
+        <div id="debugdiv">
+          <div id="debug">
+            <p><span class="debugHead">Track name:</span><span id="currTrackName"></span></p>
+            <p><span class="debugHead">Url:</span><span id="currURL"></span></p>
+            <p><span class="debugHead">Track duration (seconds):</span><span id="currDurr"></span></p>
+            <p><span class="debugHead">Playlist duration (minutes):</span><span id="totalDurr"></span></p>
+            <p><span class="debugHead">Current Index: </span><span id="indexNo"></span></p>
+            <p><span class="debugHead">Tags for current track:</span><span id="currTags"></span></p>
+            <p><span class="debugHead">Credits:</span></p>
+            <p id="currCredit"></p>
+
+            <p><br /></p>
+
+            <p>
+              <span class="debugHead">Credits (to be played at the end):</span>
+            </p>
+            <p id="creditStackHTML"></p>
+
+            <p><br /></p>
+
+            <p id="shuffle"><span class="debugHead">Full TrackList:</span><span id="fullList"></span></p>
+            <br />
+            <p>
+              <span class="debugHead">Log:</span>
+            </p>
+            <p>
+              <br />
+            </p>
+
+            <p><span id="displayConsoleLog"></span></p>
+          </div>
+        </div>
+      </section>
+
+      <section id="aboutPage" class="page">
+        <div class="pageContent">
+          <div class="headerDiv">
+            <h2 id="aboutH2">ABOUT</h2>
+            <h3 id="monH2">MONAHAN</h3>
+          </div>
+          <div class="textBoxDiv">
+            <p>A sound piece for curious ears.</p>
+            <p>Experience the site anew with each visit through dozens of sounds and stories gathered for the Monahan wetlands.</p>
+            <p>
+              Delve into sounds that explore movement, migration, story as medicine, non-human beings, plants as healers, voice, translation, and
+              place.
+            </p>
+          </div>
+          <div class="svg-container"></div>
+
+        </div>
+      </section>
+
+      <section id="howToListenPage" class="page">
+        <div class="pageContent">
+          <h2 id="howToListenH2">HOW TO LISTEN</h2>
+          <ul>
+            <li>Scan the QR code </li>
+            <li>Arrive at the MONAHAN website</li>
+            <li>Put on your HEADPHONES</li>
+            <li>Click BEGIN</li>
+            <li>LISTEN to a personalized sound piece</li>
+          </ul>
+          <p>You can listen to MONAHAN wherever you are.  We suggest spending time outside while listening.</p>
+          <img src="images/icons/border.svg" alt="" class="decorativeImage" />
+        </div>
+      </section>
+
+      <section id="howItWorksPage" class="page">
+        <div class="pageContent">
+          <p>HOW IT WORKS</p>
+          <p>
+            Each time you click BEGIN, you’ll hear a unique sound piece, collaged by our algorithm from 173 sound chapters. All these chapters are
+            created by a diverse group of contributors. You’ll hear everything from songs and poems to nature sounds, interviews and stories.
+          </p>
+          <img src="images/icons/divider.svg" alt="" class="decorativeImage" />
+          <p>
+            By bringing together sounds by human and non-human beings MONAHAN creates an ever-evolving experience. You may hear a chapter you’ve heard
+            before, but this time it’s next to something new.  Like the landscape around you, MONAHAN is always changing. 
+          </p>
+        </div>
+      </section>
+
+      <section id="whereToFindUsPage" class="page">
+        <div class="pageContent">
+          <p>WHERE TO FIND US</p>
+          <p>Visit the Monahan Wetlands (or Monahan Drain) in Ottawa, Canada.</p>
+          <p>ACCESSIBILITY</p>
+          <ul>
+            <li>The paths around the site are paved, and accessible, and include benches. </li>
+            <li>With a smartphone and data access you can scan a QR code to experience the sound piece. </li>
+            <li>QR codes are on the main sign located near the bridge and on a selection of benches along the main path. </li>
+            <li>The QR codes on the benches are installed on the backrests. </li>
+            <li>There are no washrooms on site.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="contributorsPage" class="page">
+        <div class="pageContent">
+          <p>------------------</p>
+          <div>
+            <p>SARAH ABBOTT</p>
+            <p>+</p>
+          </div>
+          <p>------------------</p>
+          <div>
+            <p>Diana Beresford-Kroeger</p>
+            <p>+</p>
+          </div>
+          <p>------------------</p>
+          <div>
+            <p>Sutures parallèles</p>
+            <p>+</p>
+            <p>featuring</p>
+            <p>------------------</p>
+            <div>
+              <p>Marc-Alexandre Reinhardt</p>
+              <p>-</p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+              minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </div>
+            <p>------------------</p>
+            <div>
+              <p>Frédérique Roy</p>
+              <p>-</p>
+              <p>------------------</p>
+              <div>
+                <p>Diana Beresford-Kroeger</p>
+                <p>+</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="productionTeamPage" class="page">
+        <div class="pageContent">
+          <p>------------------</p>
+          <div>
+            <p>SARAH ABBOTT</p>
+            <p>ecology & non-human advocacy</p>
+            <p>+</p>
+          </div>
+          <p>------------------</p>
+          <div>
+            <p>Jordy Bell</p>
+            <p>ecology & non-human advocacy</p>
+            <p>+</p>
+          </div>
+          <div>
+            <p>Brandon Edwards</p>
+            <p>research assistant</p>
+            <p>+</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="thanksPage" class="page">
+        <div class="pageContent">
+          <img src="images/icons/divider.svg" alt="" class="decorativeImage" />
+          <p>
+            Thank you to <a target="_blank" href="LINK">Skyline</a>, <a target="_blank" href="LINK">Alto Aluminum</a>, and
+            <a target="_blank" href="LINK">Dymech</a> for fabricating the signage.
+          </p>
+          <p>
+            Huge thank you’s go out to: Stephanie Nadeau Stephen Legari Jason Sonier Chris Newton Ron Gallant Sherry McPhail Mitchell Frank Saul Frank
+            Taler
+          </p>
+          <p>MONAHAN was produced by Grimm Pictures and commissioned by the City of Ottawa’s Public Art Program.</p>
+          <p>Contact: publicartprogram@ottawa.ca </p>
+          <p>©2023 All Rights Reserved</p>
+          <p>City of Ottawa Art Collection Collection de la ville d’art d’Ottawa</p>
+          <div id="logoBox">
+            <img src="images/icons/cityOfOttawaLogo.svg" alt="" class="decorativeImage" />
+          </div>
+          <p>Thank you for visiting MONAHAN.  We hope you will return for a different experience!</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- <footer>
+      <div id="scriptOutputContainer"></div>
+     </footer> -->
+
+    <!-- <script src="songs.json"></script>
+    <script src="play.js"></script>
+    <script src="translate.js"></script>
+
+    <script>
+      window.addEventListener("load", () => {});
+    </script> -->
 
 
-
-  
-// Background music
-const backgroundMusic = document.querySelector("#background-music");
-    console.log("Background music element:", backgroundMusic);
+    <script>
+      // "use strict";
     
 
-// Function to play background music
-const playBackgroundMusic = () => {
+
+
+
+
+    // Background music
+    const backgroundMusic = document.querySelector("#background-music");
+    console.log("Background music element:", backgroundMusic);
+    
+    // Function to play background music
+    const playBackgroundMusic = () => {
       if (backgroundMusic) {
         console.log("Attempting to play background music");
         backgroundMusic.play().then(() => {
@@ -75,7 +361,6 @@ const playBackgroundMusic = () => {
       }
     };
     
-
     document.addEventListener("click", () => {
       console.log("Document clicked");
       playBackgroundMusic();
@@ -95,12 +380,13 @@ const playBackgroundMusic = () => {
         console.warn("Wake lock API not available.");
       }
     };
-
-// Request wake lock on page load
-requestWakeLock();
     
+    // Request wake lock on page load
+    requestWakeLock();
+    
+    </script>
 
-</script>
 
-</body>
+
+  </body>
 </html>
